@@ -1,0 +1,13 @@
+
+["Happy Trail Control Values"]
+	#Debug Level: 0 = Off, 1 = Log, 2 = Chat+Log
+	#Range: 0 ~ 2
+	debugLevel = 0
+	#How difficult is recipe.
+	#Range: 0 ~ 2
+	recipeDifficulty = 0
+	#Only Owner can store Horse, Donkey, or Mule.
+	mustBeOwner = true
+	#The Steed must be saddled to be stored.
+	mustBeSaddled = true
+
