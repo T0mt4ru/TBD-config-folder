@@ -1,0 +1,179 @@
+{
+	"formatVersion": "1.0",
+	"cobbleGen": [
+		{
+			"id": "minecraft:cobblestone",
+			"weight": 100.0,
+			"minY": 0,
+		},
+		{
+			"id": "minecraft:cobbled_deepslate",
+			"weight": 100.0,
+			"maxY": 0,
+		},
+	],
+	"stoneGen": [
+		{
+			"id": "minecraft:stone",
+			"weight": 100.0,
+		},
+	],
+	"basaltGen": [
+		{
+			"id": "minecraft:basalt",
+			"weight": 100.0,
+		},
+	],
+	"customGen": {
+		"cobbleGen": {
+			"minecraft:bedrock": [
+				{
+					"id": "minecraft:emerald_ore",
+					"weight": 2.0,
+				},
+				{
+					"id": "minecraft:diamond_ore",
+					"weight": 5.0,
+				},
+				{
+					"id": "minecraft:lapis_ore",
+					"weight": 8.0,
+				},
+				{
+					"id": "minecraft:gold_ore",
+					"weight": 10.0,
+				},
+				{
+					"id": "minecraft:iron_ore",
+					"weight": 15.0,
+				},
+				{
+					"id": "minecraft:coal_ore",
+					"weight": 20.0,
+				},
+				{
+					"id": "minecraft:cobblestone",
+					"weight": 80.0,
+				},
+			],
+		},
+		"stoneGen": {
+			"minecraft:bedrock": [
+				{
+					"id": "minecraft:stone",
+					"weight": 40.0,
+				},
+				{
+					"id": "minecraft:diorite",
+					"weight": 20.0,
+				},
+				{
+					"id": "minecraft:andesite",
+					"weight": 20.0,
+				},
+				{
+					"id": "minecraft:granite",
+					"weight": 20.0,
+				},
+			],
+		},
+		"basaltGen": {
+			"minecraft:bedrock": [
+				{
+					"id": "minecraft:end_stone",
+					"weight": 100.0,
+					"dimensions": [
+						"minecraft:the_end",
+					],
+				},
+				{
+					"id": "minecraft:blackstone",
+					"weight": 100.0,
+					"excludedDimensions": [
+						"minecraft:overworld",
+					],
+				},
+			],
+		},
+	},
+	// Advanced Custom Generator (Custom Fluid Interaction)
+ 	// Basic format:
+ 	// "advanced": { <source fluid id>: { <neighbour fluid/block id>: { results: {<modifier block id>: [ { "id": <block id>, "weight": <randomness weight> }, ... ] } } } }
+  "advanced": {
+    // Make sure to use still version of the fluid for this one,
+    // - "minecraft:lava" not "minecraft:flowing_lava"
+    // - "milk:still_milk" not "milk:flowing_milk"
+    // How the fluid's ID is constructed depends on how the corresponding mod creator does things.
+    "create_things_and_misc:slime": {
+      // replicates minecraft cobblestone and stone generator
+      // This one can be flowing or still version of the fluid, if still doesn't work try flowing.
+      "minecraft:water": {
+        // stone generator
+        "resultsFromTop": {},
+        //  "*": [  // wildcard, accept any block as modifier
+        //    {
+        //      "id": "minecraft:stone",
+        //      "weight": 100.0,
+        //    }
+        //  ]
+        //},
+        // cobblestone generator
+        "results": {},
+        //  "*": [  // wildcard, accept any block as modifier
+        //    {
+        //      "id": "minecraft:cauldron",
+        //      "weight": 100.0,
+        //    }
+        //  ]
+        //}
+      },
+      // replicates minecraft basalt generator
+      "b:minecraft:blue_ice": {
+        "results": {
+          "farmersdelight:rich_soil": [
+            {
+              "id": "minecraft:slime_block",
+              "weight": 100.0,
+            }
+          ]
+        }
+      }
+	}
+  },
+//  "advanced": {
+//    "thermal:crude_oil": {
+//      "minecraft:water": {
+//        "resultsFromTop": {},
+//        "results": {},
+//      },
+//      "b:thermal:blue_ice": {
+//        "results": {
+//          "minecraft:sandstone": [
+//            {
+//              "id": "thermal:oil_sand",
+//              "weight": 100.0,
+//            }
+//          ]
+//        }
+//      }
+//	}
+//  },
+//   "advanced": {
+//    "thermal:crude_oil": {
+//      "minecraft:water": {
+//        "resultsFromTop": {},
+//        "results": {},
+//      },
+//      "b:thermal:blue_ice": {
+//        "results": {
+//          "minecraft:red_sandstone": [
+//            {
+//              "id": "thermal:oil_red_sand",
+//              "weight": 100.0,
+//            }
+//          ]
+//        }
+//      }
+//	}
+//  }
+}
